@@ -2,11 +2,13 @@
 
 An end-to-end Machine Learning project that predicts forest cover types from cartographic and environmental features using an optimized Random Forest classifier.
 
-The system classifies forest areas into **7 forest cover categories** using the UCI Covertype dataset, achieving **96.20% test accuracy** and **93.29% Macro F1-score**.
+ForestGuard AI classifies forest areas into **7 forest cover categories** using the UCI Covertype dataset, achieving **96.20% test accuracy** and a **93.29% Macro F1-score**.
 
 <p align="center">
-  <a href="https://forestguard-ai.streamlit.app/"><strong>Live Demo</strong></a> ·
-  <a href="https://huggingface.co/AbdelrahmanAkl/forestguard-ai-model"><strong>Hugging Face Model</strong></a> ·
+  <a href="https://forestguard-ai.streamlit.app/"><strong>Live Demo</strong></a>
+  &nbsp;|&nbsp;
+  <a href="https://huggingface.co/AbdelrahmanAkl/forestguard-ai-model"><strong>Hugging Face Model</strong></a>
+  &nbsp;|&nbsp;
   <a href="https://github.com/AbdelrhmanAkl/ForestGuard-AI"><strong>GitHub Repository</strong></a>
 </p>
 
@@ -16,26 +18,29 @@ The system classifies forest areas into **7 forest cover categories** using the 
 
 ForestGuard AI is a multi-class classification system designed to predict forest cover types based on geographical and environmental characteristics.
 
-It uses 54 cartographic features, including elevation, slope, hydrological distances, hillshade measurements, wilderness areas, and soil types.
+The model uses 54 cartographic features, including elevation, slope, hydrological distances, hillshade measurements, wilderness areas, and soil types.
 
-The project covers the complete machine learning workflow:
+The project demonstrates a complete Machine Learning workflow:
 
-- Data exploration and quality analysis.
+- Exploratory Data Analysis (EDA) and data quality analysis.
 - Data preprocessing and stratified splitting.
-- Training and comparing multiple classification algorithms.
+- Training and comparison of multiple classification algorithms.
 - Hyperparameter optimization using RandomizedSearchCV.
 - Final evaluation on an untouched test set.
-- Model serialization and artifact hosting.
-- Interactive prediction through a Streamlit web application.
+- Model serialization and hosting on Hugging Face.
+- Interactive predictions through a Streamlit web application.
 
 ## Live Application
 
-Try the deployed application:
+<p align="center">
+  <a href="https://forestguard-ai.streamlit.app/">
+    <strong>Launch ForestGuard AI</strong>
+  </a>
+</p>
 
-**[Launch ForestGuard AI](https://forestguard-ai.streamlit.app/)**
+The interactive application provides:
 
-The application provides:
-- Interactive terrain feature inputs.
+- Terrain feature inputs.
 - Predicted forest cover category.
 - Prediction confidence.
 - Class probability visualization.
@@ -44,17 +49,19 @@ The application provides:
 
 ## Model Performance
 
-The final optimized Random Forest model was evaluated on an untouched test set.
+The final optimized Random Forest model was evaluated on an untouched test set containing 116,203 samples.
 
-| Metric | Test Score |
+| Evaluation Metric | Test Score |
 |---|---:|
-| Accuracy | 96.20% |
+| Accuracy | **96.20%** |
 | Macro Precision | 94.73% |
 | Macro Recall | 92.00% |
-| Macro F1-score | 93.29% |
+| Macro F1-score | **93.29%** |
 | Weighted F1-score | 96.18% |
 
 ### Model Comparison
+
+The following models were compared using validation performance:
 
 | Model | Validation Accuracy | Validation Macro F1 |
 |---|---:|---:|
@@ -70,7 +77,7 @@ The tuned Random Forest achieved the strongest validation Macro F1-score among t
 
 RandomizedSearchCV was used with 8 parameter combinations and 3-fold stratified cross-validation, optimizing Macro F1.
 
-Best parameters:
+**Best hyperparameters:**
 
 ```python
 {
@@ -82,35 +89,43 @@ Best parameters:
 }
 ```
 
-Best cross-validation Macro F1-score: **0.9243**
+- Best cross-validation Macro F1-score: **0.9243**
+- Search candidates: 8
+- Cross-validation folds: 3
+- Optimization metric: Macro F1
 
 ## Dataset
 
 **UCI Covertype Dataset**
 
-- Total records: 581,012
-- Input features: 54
-- Target classes: 7
-- Task: Multi-class classification
+Source: [UCI Machine Learning Repository — Covertype](https://archive.ics.uci.edu/dataset/31/covertype)
 
-Dataset source:
+| Dataset Property | Value |
+|---|---:|
+| Total Records | 581,012 |
+| Input Features | 54 |
+| Target Classes | 7 |
+| Task | Multi-class Classification |
 
-[UCI Machine Learning Repository — Covertype](https://archive.ics.uci.edu/dataset/31/covertype)
+The dataset contains cartographic and environmental variables describing forest areas.
 
-The dataset contains cartographic variables describing forest areas, including:
+### Feature Categories
+
+The 54 input features include:
 
 - Elevation
 - Aspect
 - Slope
 - Horizontal and vertical distance to hydrology
 - Horizontal distance to roadways
+- Horizontal distance to fire points
 - Hillshade measurements
 - Wilderness area indicators
 - Soil type indicators
 
 ## Forest Cover Categories
 
-The model predicts one of the following seven classes:
+The model predicts one of the following seven forest cover types:
 
 | Class | Forest Cover Type |
 |---:|---|
@@ -126,11 +141,11 @@ The model predicts one of the following seven classes:
 
 | Category | Technologies |
 |---|---|
-| Language | Python |
+| Programming Language | Python |
 | Data Processing | Pandas, NumPy |
 | Machine Learning | Scikit-learn, XGBoost |
 | Model Optimization | RandomizedSearchCV |
-| Visualization | Matplotlib, Plotly |
+| Data Visualization | Matplotlib, Plotly |
 | Web Application | Streamlit |
 | Model Serialization | Joblib |
 | Model Hosting | Hugging Face Hub |
@@ -171,44 +186,46 @@ ForestGuard-AI/
     └── utils.py
 ```
 
-The trained model is hosted separately on Hugging Face to keep the GitHub repository lightweight.
+**Note:** The trained model artifact is hosted separately on Hugging Face to keep the GitHub repository lightweight.
 
-**Model artifact:** [forestguard-ai-model](https://huggingface.co/AbdelrahmanAkl/forestguard-ai-model)
+[View ForestGuard AI Model on Hugging Face](https://huggingface.co/AbdelrahmanAkl/forestguard-ai-model)
 
-## Run Locally
+## Installation and Local Setup
 
-### 1. Clone the repository
+Follow these steps to run ForestGuard AI locally.
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/AbdelrhmanAkl/ForestGuard-AI.git
 cd ForestGuard-AI
 ```
 
-### 2. Create a virtual environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
 
-Activate it on Windows:
+Activate the environment on Windows:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-Or on macOS/Linux:
+On macOS/Linux:
 
 ```bash
 source .venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the application
+### 4. Run the Application
 
 ```bash
 streamlit run app.py
@@ -220,11 +237,13 @@ The application will be available at:
 http://localhost:8501
 ```
 
-**Model download:** If the trained model is not available locally, the application automatically downloads it from the public Hugging Face model repository.
+### Model Download
 
-## Model Evaluation
+If the trained model is not available locally, the application automatically downloads the model artifact from the public Hugging Face repository.
 
-The project includes evaluation reports and visualizations:
+## Model Evaluation and Visualizations
+
+The project includes detailed evaluation reports and visualizations:
 
 - Classification report.
 - Test confusion matrix.
@@ -232,14 +251,14 @@ The project includes evaluation reports and visualizations:
 - Model comparison results.
 - Final test metrics.
 
-The feature importance analysis identifies which input features the trained Random Forest relies on most. These values represent model importance, not causal relationships.
+Feature importance indicates which input features the trained Random Forest relies on most. These values represent model reliance, not causal relationships.
 
 ## Limitations
 
 - Predictions are based on the UCI Covertype dataset and its original feature definitions.
 - The model is not a substitute for field surveys or professional forestry assessment.
 - Performance on geographical regions or data distributions outside the original dataset has not been independently established.
-- Prediction confidence represents the model's estimated class probabilities, not a guarantee of correctness.
+- Prediction confidence represents the model's estimated class probabilities and does not guarantee correctness.
 
 ## Author
 
@@ -247,9 +266,9 @@ The feature importance analysis identifies which input features the trained Rand
 
 AI Engineer | Machine Learning | Deep Learning | Agentic AI
 
-- GitHub: [@AbdelrhmanAkl](https://github.com/AbdelrhmanAkl)
-- Hugging Face: [@AbdelrahmanAkl](https://huggingface.co/AbdelrahmanAkl)
-- Live Project: [ForestGuard AI](https://forestguard-ai.streamlit.app/)
+- **GitHub:** [@AbdelrhmanAkl](https://github.com/AbdelrhmanAkl)
+- **Hugging Face:** [@AbdelrahmanAkl](https://huggingface.co/AbdelrahmanAkl)
+- **Live Project:** [ForestGuard AI](https://forestguard-ai.streamlit.app/)
 
 ---
 
