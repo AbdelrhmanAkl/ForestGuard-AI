@@ -262,13 +262,10 @@ Feature importance indicates which input features the trained Random Forest reli
 
 ## Author
 
-**Abdelrahman Akl**
+**Abdelrahman Akl**  
+*AI Engineer | Building Intelligent Machine Learning Systems*
 
-AI Engineer | Machine Learning | Deep Learning | Agentic AI
-
-- **GitHub:** [@AbdelrhmanAkl](https://github.com/AbdelrhmanAkl)
-- **Hugging Face:** [@AbdelrahmanAkl](https://huggingface.co/AbdelrahmanAkl)
-- **Live Project:** [ForestGuard AI](https://forestguard-ai.streamlit.app/)
+[GitHub](https://github.com/AbdelrhmanAkl) · [Hugging Face](https://huggingface.co/AbdelrahmanAkl) · [Live Demo](https://forestguard-ai.streamlit.app/)
 
 ---
 
